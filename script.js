@@ -2,7 +2,7 @@ const API_KEY = "9f787869bb77eae36fb58d415dd45d6e";
 const movieContainer = document.getElementById("movie-container");
 const searchBox = document.getElementById("searchBox");
 
-// Modal elements
+
 const modal = document.getElementById("movieModal");
 const modalTitle = document.getElementById("modalTitle");
 const modalPoster = document.getElementById("modalPoster");
@@ -25,7 +25,7 @@ async function searchMovies(query) {
     return data.results;
 }
 
-// Function to load the movie grid
+
 function renderMovies(movies) {
     movieContainer.innerHTML = "";
     movies.forEach(movie => {
@@ -46,7 +46,7 @@ function renderMovies(movies) {
     });
 }
 
-// Searchbutton functionality
+
 async function searchMovie() {
     const query = searchBox.value.trim();
     if (!query) {
@@ -61,7 +61,7 @@ async function searchMovie() {
     }
 }
 
-// Opens the modal with TMDb movie details
+
 function openModal(movie) {
     modalTitle.textContent = movie.title;
     modalPoster.src = movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : "https://placehold.co/200x300?text=No+Poster";
@@ -70,7 +70,7 @@ function openModal(movie) {
     modalRuntime.textContent = `${movie.runtime} min`;
     modalRating.textContent = movie.vote_average.toFixed(1);
 
-    // --- Trailer Logic ---
+    
     const trailer = movie.videos?.results.find(video => video.type === 'Trailer' && video.site === 'YouTube');
     
     if (trailer) {
@@ -80,7 +80,7 @@ function openModal(movie) {
         watchTrailerBtn.style.display = 'none';
     }
 
-    //Simulated Reviews Logic
+    
     modalReviews.innerHTML = "";
     const rating = movie.vote_average;
     let positiveReviews = ["A must-watch!", "Stunning and powerful.", "An instant classic."];
@@ -101,7 +101,7 @@ function closeModal() {
     modal.style.display = "none";
 }
 
-// Initial load, fetch popular movies to show on start
+
 async function initialLoad() {
     const res = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`);
     const data = await res.json();
@@ -110,3 +110,4 @@ async function initialLoad() {
 
 
 initialLoad();
+
