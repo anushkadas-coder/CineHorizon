@@ -146,7 +146,8 @@ main {
 }
 
 #mWatchTrailer {
-  background: #f94144; /* Red color for trailer button */
-  display: none; /* Hidden by default */
+  background: #f94144; 
+  display: none; 
 
 }
+
