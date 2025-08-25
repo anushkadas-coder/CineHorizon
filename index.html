@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CineHorizon</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">🎬 CineHorizon</div>
+    <input type="text" id="searchBox" placeholder="Search for movies...">
+    <button onclick="searchMovie()">Search</button>
+  </header>
+
+  <main>
+    <div id="movie-container" class="movie-container">
+      </div>
+  </main>
+
+  <div id="movieModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2 id="modalTitle"></h2>
+      <img id="modalPoster" src="" alt="Poster">
+      <p id="modalPlot"></p>
+      <p><strong>Genre:</strong> <span id="modalGenre"></span></p>
+      <p><strong>Runtime:</strong> <span id="modalRuntime"></span></p>
+      <p><strong>TMDb Rating:</strong> ⭐ <span id="modalRating"></span></p>
+      <h4>Audience Sentiment</h4>
+      <div id="modalReviews"></div>
+      <div class="actions">
+        <a id="mWatchTrailer" target="_blank" rel="noopener">🎬 Watch Trailer</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
