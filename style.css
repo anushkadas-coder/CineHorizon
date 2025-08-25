@@ -1,4 +1,4 @@
-/* Netflix inspired funky gradient */
+
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
@@ -148,4 +148,5 @@ main {
 #mWatchTrailer {
   background: #f94144; /* Red color for trailer button */
   display: none; /* Hidden by default */
+
 }
