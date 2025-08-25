@@ -13,13 +13,12 @@ const modalRating = document.getElementById("modalRating");
 const modalReviews = document.getElementById("modalReviews");
 const watchTrailerBtn = document.getElementById("mWatchTrailer");
 
-// Fetches details AND videos for a single movie from TMDb
+
 async function fetchMovieDetails(movieId) {
     const res = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=en-US&append_to_response=videos`);
     return await res.json();
 }
 
-// Function to search for movies on TMDb
 async function searchMovies(query) {
     const res = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}`);
     const data = await res.json();
@@ -47,7 +46,7 @@ function renderMovies(movies) {
     });
 }
 
-// Search button functionality
+// Searchbutton functionality
 async function searchMovie() {
     const query = searchBox.value.trim();
     if (!query) {
@@ -81,7 +80,7 @@ function openModal(movie) {
         watchTrailerBtn.style.display = 'none';
     }
 
-    // --- Simulated Reviews Logic ---
+    //Simulated Reviews Logic
     modalReviews.innerHTML = "";
     const rating = movie.vote_average;
     let positiveReviews = ["A must-watch!", "Stunning and powerful.", "An instant classic."];
@@ -102,12 +101,12 @@ function closeModal() {
     modal.style.display = "none";
 }
 
-// Initial load: fetch popular movies to show on start
+// Initial load, fetch popular movies to show on start
 async function initialLoad() {
     const res = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`);
     const data = await res.json();
     renderMovies(data.results);
 }
 
-// Start the app
+
 initialLoad();
